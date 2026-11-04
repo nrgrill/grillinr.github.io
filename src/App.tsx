@@ -1,14 +1,31 @@
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { HashRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { SiteShell } from "@/components/layout/site-shell";
-import { AboutPage } from "@/pages/about-page";
-import { BlogIndexPage } from "@/pages/blog-index-page";
-import { BlogPostPage } from "@/pages/blog-post-page";
-import { ContactPage } from "@/pages/contact-page";
 import { HomePage } from "@/pages/home-page";
-import { ProjectDetailPage } from "@/pages/project-detail-page";
-import { ProjectsPage } from "@/pages/projects-page";
-import { ResumePage } from "@/pages/resume-page";
+
+const AboutPage = lazy(() =>
+  import("@/pages/about-page").then((module) => ({ default: module.AboutPage })),
+);
+const ProjectsPage = lazy(() =>
+  import("@/pages/projects-page").then((module) => ({ default: module.ProjectsPage })),
+);
+const ProjectDetailPage = lazy(() =>
+  import("@/pages/project-detail-page").then((module) => ({
+    default: module.ProjectDetailPage,
+  })),
+);
+const ResumePage = lazy(() =>
+  import("@/pages/resume-page").then((module) => ({ default: module.ResumePage })),
+);
+const BlogIndexPage = lazy(() =>
+  import("@/pages/blog-index-page").then((module) => ({ default: module.BlogIndexPage })),
+);
+const BlogPostPage = lazy(() =>
+  import("@/pages/blog-post-page").then((module) => ({ default: module.BlogPostPage })),
+);
+const ContactPage = lazy(() =>
+  import("@/pages/contact-page").then((module) => ({ default: module.ContactPage })),
+);
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
