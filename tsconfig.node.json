@@ -12,7 +12,6 @@
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
